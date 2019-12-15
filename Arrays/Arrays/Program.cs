@@ -96,7 +96,87 @@ namespace Arrays
                 //Tehtävä 3 valinta
                 else if (select == 3)
                 {
+                    //Alustetaan taulukot ja niiden täyttämiseen tarvittavat muuttujat
+                    int[] arrT_1 = new int[10];
+                    int[] arrT_2 = new int[10];
+                    int[] arrT_3 = new int[10];
 
+                    Random rnd = new Random();
+                    int add;
+
+                    //Täytetään taulukot 1 ja 2 luvuilla, 3 jätetään vielä tyjäksi
+                    for (int i = 0; i < 10; i++)
+                    {
+                        add = rnd.Next(0,100);
+                        arrT_1[i] = add;
+
+                        add = rnd.Next(0, 100);
+                        arrT_2[i] = add;
+
+                    }
+
+                    //Verrataan taulukoiden 1 ja 2 lukuja keskenään, täytetään taulukko 3
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (arrT_1[i] <= arrT_2[i])
+                        {
+                            arrT_3[i] = arrT_2[i];
+
+                        } else if (arrT_1[i] > arrT_2[i])
+                        {
+                            arrT_3[i] = arrT_1[i];
+                        }
+                    }
+
+                    //Tulostetaan selitteet
+                    Console.WriteLine("01 02 03 04 05 06 07 08 09 10");
+                    Console.WriteLine("------------------------");
+
+                    //Tulostetaan taulukot yksi kerrallaan
+                    #region
+                    Console.Write("arrT_1: ");
+                    foreach (int i in arrT_1)
+                    {
+                        if (i < 10)
+                        {
+                            Console.Write($"0{i} ");
+                        } else
+                        {
+                            Console.Write($"{i} ");
+                        }
+                    }
+                    //Rivinvaihto ennen seuraavaa tulostusta
+                    Console.WriteLine();
+                    #endregion
+                    #region
+                    Console.Write("arrT_2: ");
+                    foreach (int i in arrT_2)
+                    {
+                        if (i < 10)
+                        {
+                            Console.Write($"0{i} ");
+                        }
+                        else
+                        {
+                            Console.Write($"{i} ");
+                        }
+                    }
+                    Console.WriteLine();
+                    #endregion
+                    #region
+                    Console.Write("arrT_3: ");
+                    foreach (int i in arrT_3)
+                    {
+                        if (i < 10)
+                        {
+                            Console.Write($"0{i} ");
+                        }
+                        else
+                        {
+                            Console.Write($"{i} ");
+                        }
+                    }
+                    #endregion
                 }
             }
             else
