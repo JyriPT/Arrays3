@@ -28,7 +28,7 @@ namespace Arrays
                     //Syötetään taulukkoon 10 lukua
                     for (int i = 0; i < 10; i++)
                     {
-                        int add = rnd.Next(1, 21);
+                        int add = rnd.Next(0, 21);
                         taulukko[i] = add;
                     }
 
@@ -54,7 +54,44 @@ namespace Arrays
                 //Tehtävä 2 valinta
                 else if (select == 2)
                 {
+                    //Alustetaan taulukko
+                    Random rnd = new Random();
+                    int[,] taulukko = new int[10,20];
 
+                    //Lisätään taulukkoon arvot, käydään läpi 2 for-looppia
+                    for (int i = 0; i < 10; i++)
+                    {
+                        for (int j = 0; j < 20; j++)
+                        {
+                            taulukko[i, j] = rnd.Next(0, 101);
+                        }
+                    }
+
+                    //Tulostetaan taulukko, alustetaan int-arvot järjestysnumeroiden seurantaa varten
+                    Console.WriteLine("[X, Y] = Arvo");
+                    int trackX = 0;
+                    int trackY = 0;
+
+                    //Käydään taulukko läpi, tarkistetaan onko numero piennempi kuin 10, lisätään nolla eteen tarpeen mukaan
+                    foreach (int i in taulukko)
+                    {
+                        if (i < 10)
+                        {
+                            Console.WriteLine($"[{trackX}, {trackY}] = 0{i}");
+                        } else
+                        {
+                            Console.WriteLine($"[{trackX}, {trackY}] = {i}");
+                        }
+
+                        trackY++;
+
+                        //Seurantanumeroiden päivitystä, jos Y menee "yli", nollataan ja nostetaan X arvo
+                        if (trackY == 20)
+                        {
+                            trackY = 0;
+                            trackX++;
+                        }
+                    }
                 }
                 //Tehtävä 3 valinta
                 else if (select == 3)
